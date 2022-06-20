@@ -8,6 +8,10 @@ const readDataFromFile = (fileName) => {
   return JSON.parse(rawData);
 };
 
-const writeDataToFile = () => {};
+const writeDataToFile = (data, fileName) => {
+  const filePath = path.join(__dirname, `../../db/${fileName}`);
+  fs.writeFileSync(filePath, JSON.stringify(data));
+  console.log("HERE");
+};
 
 module.exports = { readDataFromFile, writeDataToFile };
