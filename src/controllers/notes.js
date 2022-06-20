@@ -9,6 +9,7 @@ const getNotes = (req, res) => {
 };
 
 const saveNote = (req, res) => {
+  // get user input
   const { title, text } = req.body;
 
   const id = uuidv4();
@@ -19,6 +20,7 @@ const saveNote = (req, res) => {
     text,
   };
 
+  // add new note to existing list
   const data = readDataFromFile("db.json");
   console.log(data);
 
@@ -31,7 +33,24 @@ const saveNote = (req, res) => {
   });
 };
 
+const deleteNote = (req, res) => {
+  const { id } = req.params;
+
+  console.log(id);
+
+  const data = readDataFromFile("db.json");
+
+  const filteredNotes = data.filter((note) => note.id !== id);
+
+  writeDataToFile(filteredNotes, "db.json");
+
+  return res.json({
+    message: "Note successfully deleted",
+  });
+};
+
 module.exports = {
   getNotes,
   saveNote,
+  deleteNote,
 };
