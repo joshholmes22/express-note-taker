@@ -22,7 +22,6 @@ const saveNote = (req, res) => {
 
   // add new note to existing list
   const data = readDataFromFile("db.json");
-  console.log(data);
 
   data.push(note);
 

@@ -11,7 +11,6 @@ const readDataFromFile = (fileName) => {
 const writeDataToFile = (data, fileName) => {
   const filePath = path.join(__dirname, `../../db/${fileName}`);
   fs.writeFileSync(filePath, JSON.stringify(data));
-  console.log("HERE");
 };
 
 module.exports = { readDataFromFile, writeDataToFile };
