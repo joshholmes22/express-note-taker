@@ -34,14 +34,14 @@ const saveNote = (req, res) => {
 };
 
 const deleteNote = (req, res) => {
+  // get required id and remove from list
   const { id } = req.params;
-
-  console.log(id);
 
   const data = readDataFromFile("db.json");
 
   const filteredNotes = data.filter((note) => note.id !== id);
 
+  //save new list
   writeDataToFile(filteredNotes, "db.json");
 
   return res.json({
