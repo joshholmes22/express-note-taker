@@ -9,7 +9,7 @@ Please click [here](https://express-note-taker-jh.herokuapp.com/) to view the de
 ## Installation
 
 ```
-git clone
+git clone git@github.com:glowingmanagement/express-note-taker.git
 cd express-note-taker
 npm i
 ```
